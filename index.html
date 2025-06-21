@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overcut - F1 Strateji Yardımcısı</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Overcut</h1>
+            <p>F1 Yarış Stratejisi Yardımcınız</p>
+        </header>
+
+        <section class="input-section">
+            <h2>Yarış Bilgilerini Girin</h2>
+            <div class="form-group">
+                <label for="trackType">Pist Tipi:</label>
+                <select id="trackType">
+                    <option value="track">Normal Pist</option>
+                    <option value="street">Sokak Pisti</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="weatherCondition">Hava Durumu:</label>
+                <select id="weatherCondition">
+                    <option value="dry">Kuru</option>
+                    <option value="wet">Yağmurlu</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="tireType">Mevcut Lastik Tipi:</label>
+                <select id="tireType">
+                    <option value="soft">Soft</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="wet">Wet</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="currentLap">Mevcut Tur Sayısı:</label>
+                <input type="number" id="currentLap" min="1" value="1" placeholder="Örn: 15">
+            </div>
+
+            <div class="form-group">
+                <label for="totalLaps">Toplam Tur Sayısı:</label>
+                <input type="number" id="totalLaps" min="10" value="70" placeholder="Örn: 65">
+            </div>
+
+            <button id="getStrategyBtn">Strateji Önerisi Al</button>
+        </section>
+
+        <section class="recommendations-section">
+            <h2>Strateji Önerileri</h2>
+            <div id="strategyOutput" class="output-box">
+                Lütfen yukarıdaki bilgileri girerek strateji önerisi alın.
+            </div>
+            <div id="errorMessages" class="error-box">
+                </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

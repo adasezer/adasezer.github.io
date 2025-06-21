@@ -1,0 +1,338 @@
+/* Genel Stil */
+body {
+    font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #f8fafc;
+    color: #2d3748;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    box-sizing: border-box;
+    letter-spacing: -0.01em;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    padding: 40px;
+    max-width: 620px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.2);
+}
+
+/* Başlık */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: #DC143C;
+    font-size: 3.2em;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+    font-weight: 800;
+    position: relative;
+    text-shadow: 2px 2px 4px rgba(220, 20, 60, 0.3);
+}
+
+header h1::before {
+    content: '🏁';
+    position: absolute;
+    left: -50px;
+    animation: flagWave 1s ease-in-out infinite;
+}
+
+header h1::after {
+    content: '🏎️';
+    position: absolute;
+    right: -50px;
+    animation: carMove 3s linear infinite;
+}
+
+@keyframes flagWave {
+    0%, 100% { transform: rotate(-10deg); }
+    50% { transform: rotate(10deg); }
+}
+
+@keyframes carMove {
+    0% { transform: translateX(0px); }
+    25% { transform: translateX(10px); }
+    50% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+    100% { transform: translateX(0px); }
+}
+
+header p {
+    color: #718096;
+    font-size: 1.2em;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+}
+
+/* Giriş Bölümü */
+.input-section {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+.input-section h2 {
+    color: #2d3748;
+    font-size: 2em;
+    margin-bottom: 32px;
+    text-align: center;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 15px;
+    letter-spacing: -0.015em;
+}
+
+.input-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 2px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #4a5568;
+    font-size: 1.1em;
+    position: relative;
+    padding-left: 28px;
+    letter-spacing: -0.01em;
+}
+
+.form-group label::before {
+    position: absolute;
+    left: 0;
+    font-size: 1.2em;
+}
+
+.form-group label[for="trackType"]::before { content: '🏁'; }
+.form-group label[for="weatherCondition"]::before { content: '🌦️'; }
+.form-group label[for="tireType"]::before { content: '🏎️'; }
+.form-group label[for="currentLap"]::before { content: '📍'; }
+.form-group label[for="totalLaps"]::before { content: '🏆'; }
+
+.form-group select,
+.form-group input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid transparent;
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(45deg, #DC143C, #000000) border-box;
+    border-radius: 12px;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.form-group select:focus,
+.form-group input[type="number"]:focus {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+    outline: none;
+}
+
+.form-group select:hover,
+.form-group input[type="number"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Buton */
+button {
+    background: linear-gradient(135deg, #DC143C, #8B0000);
+    color: white;
+    padding: 16px 28px;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    font-size: 1.15em;
+    font-weight: 600;
+    width: 100%;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(220, 20, 60, 0.3);
+    position: relative;
+    overflow: hidden;
+    letter-spacing: -0.01em;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #FF1E3C, #B8001F);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 35px rgba(220, 20, 60, 0.4);
+    animation: buttonPulse 0.6s ease;
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+button:active {
+    transform: translateY(-1px) scale(0.98);
+    box-shadow: 0 5px 15px rgba(220, 20, 60, 0.4);
+}
+
+@keyframes buttonPulse {
+    0%, 100% { transform: translateY(-3px) scale(1.02); }
+    50% { transform: translateY(-5px) scale(1.05); }
+}
+
+/* Öneriler Bölümü */
+.recommendations-section {
+    margin-top: 30px;
+}
+
+.recommendations-section h2 {
+    color: #2d3748;
+    font-size: 2em;
+    margin-bottom: 32px;
+    text-align: center;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 15px;
+    letter-spacing: -0.015em;
+}
+
+.recommendations-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(135deg, #ff0844, #ffb199);
+    border-radius: 2px;
+}
+
+.output-box {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    border-radius: 15px;
+    padding: 20px;
+    min-height: 100px;
+    font-size: 1.1em;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.output-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    border-radius: 15px 15px 0 0;
+}
+
+.output-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+
+
+.error-box {
+    background-color: #ffe6e6;
+    border: 1px solid #ff3333;
+    color: #cc0000;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 15px;
+    font-size: 1em;
+    font-weight: bold;
+    display: none; /* Başlangıçta gizli */
+}
+
+/* Duyarlı Tasarım (Responsive Design) */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin: 10px;
+    }
+    header h1 {
+        font-size: 2.2em;
+    }
+    header h1::before,
+    header h1::after {
+        font-size: 0.8em;
+    }
+    .input-section h2, .recommendations-section h2 {
+        font-size: 1.5em;
+    }
+    button {
+        font-size: 1.1em;
+        padding: 12px 20px;
+    }
+    .form-group label {
+        padding-left: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    .container {
+        padding: 15px;
+    }
+    header h1 {
+        font-size: 1.8em;
+    }
+    .form-group label {
+        font-size: 0.95em;
+    }
+    .form-group select,
+    .form-group input[type="number"] {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+    .output-box, .error-box {
+        font-size: 0.95em;
+        padding: 15px;
+    }
+}
